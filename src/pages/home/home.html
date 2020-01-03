@@ -1,14 +1,63 @@
-<ion-header>
-  <ion-navbar>
+<ion-header no-border>
+  <ion-navbar style="color: #fff" solid>
+
     <ion-title>
-      Ionic Blank
+      <div text-color="my-custom-color" style="text-align: center"> حسابي</div>
     </ion-title>
   </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+</ion-header>
+<ion-content style="background-color: #fff" padding>
+  <div class="logo">
+    <img height="150" id="imgPlacement" src="http://127.0.0.1:8000/vendor/crudbooster/assets/logo_crudbooster.png">
+
+  </div>
+
+  <form (ngSubmit)="login()" #registerForm="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input [(ngModel)]="form.email" name="email" type="text"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="اسم  المستخدم" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input [(ngModel)]="form.password" name="password" type="password" placeholder="كلمه  المرور" required>
+            </ion-input>
+          </ion-item>
+          <ion-item *ngIf="error_login==1">
+            <ion-label style="color: red">الرجاء التاكد من صحة كلمة السر أو إسم المستخدم</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+
+        <button ion-button block style=" border-style: solid;
+                border-color: rgb(252, 164, 0);
+                border-width: 1px; color: rgb(252, 164, 0);
+                border-radius: 5%;" outline>تسجيل الدخول </button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
+<ion-footer>
+  <button (click)="pushpages(4);" style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="more" style="height: 100%;width: 100%"></ion-icon>المزيد
+  </button>
+  <button style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="person" style="height: 100%;width: 100%"></ion-icon>حسابي
+  </button>
+  <button style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="add-circle" style="height: 100%;width: 100%"></ion-icon>إضافه
+  </button>
+  <button (click)="pushpages(1);" style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="bookmarks" style="height: 100%;width: 100%"></ion-icon>مكتبة
+  </button>
+
+
+
+</ion-footer>

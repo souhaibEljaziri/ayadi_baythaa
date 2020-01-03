@@ -1,0 +1,481 @@
+<!--
+  Generated template for the FirstpagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header no-border>
+  <ion-navbar solid>
+    <ion-row class="headerapp" style="background-color: rgb(39, 67, 151);">
+      <ion-col col-1 class="padding-LR" style="border: 0px;background-color:rgb(39, 67, 151);">
+        <ion-icon color="light" style=" font-size: 1.2em;" class="log_out" name="power" (click)="logout();"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-title>
+      <div text-color="my-custom-color" style="text-align: center"> إضافات </div>
+    </ion-title>
+
+
+
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="margin-bottom: 5%">
+    <div class="row header">
+
+      <div class="col" *ngIf="index!=1">
+        <button ion-button block style=" border-style: solid;
+            border-color: rgb(39, 67, 151);
+            border-width: 0px; color: rgb(39, 67, 151);
+            margin-left: 0px;margin-right: 0px;" (click)="formulaire(1)" outline>بيانات الاسرة </button>
+      </div>
+      <div class="col" style="background-color:rgb(131, 208, 226); " *ngIf="index==1">
+        <button ion-button block style=" border-style: solid;
+            border-color: rgb(39, 67, 151);
+            border-width: 0px; color: rgb(39, 67, 151);
+            margin-left: 0px;margin-right: 0px;" (click)="formulaire(1)" outline>بيانات الاسرة </button>
+      </div>
+      <div class="col" *ngIf="index!=2">
+        <button ion-button block style=" border-style: solid;
+                border-color: rgb(39, 67, 151);
+                border-width: 0px; color: rgb(39, 67, 151);
+                margin-left: 0px;margin-right: 0px;" (click)="formulaire(2)" outline>إحتياجات الاسرة</button>
+      </div>
+      <div class="col" style="background-color:rgb(131, 208, 226); " *ngIf="index==2">
+        <button ion-button block style=" border-style: solid;
+                border-color: rgb(39, 67, 151);
+                border-width: 0px; color: rgb(39, 67, 151);
+                margin-left: 0px;margin-right: 0px;" (click)="formulaire(2)" outline>إحتياجات الاسرة</button>
+      </div>
+
+      <div class="col" *ngIf="index!=3">
+        <button ion-button block style=" border-style: solid;
+              border-color: rgb(39, 67, 151);
+              border-width: 0px; color: rgb(39, 67, 151);
+              margin-left: 0px;margin-right: 0px;" (click)="formulaire(3)" outline>ما تم توفيره للاسرة </button>
+
+      </div>
+      <div class="col" style="background-color:rgb(131, 208, 226); " *ngIf="index==3">
+        <button ion-button block style=" border-style: solid;
+              border-color: rgb(39, 67, 151);
+              border-width: 0px; color: rgb(39, 67, 151);
+              margin-left: 0px;margin-right: 0px;" (click)="formulaire(3)" outline>ما تم توفيره للاسرة </button>
+
+      </div>
+      <div class="col" *ngIf="index!=4">
+        <button ion-button block style=" border-style: solid;
+              border-color: rgb(39, 67, 151);
+              border-width: 0px; color: rgb(39, 67, 151);
+              margin-left: 0px;margin-right: 0px;" (click)="formulaire(4)" outline>ملاحظات</button>
+
+      </div>
+      <div class="col" style="background-color:rgb(131, 208, 226); " *ngIf="index==4">
+        <button ion-button block style=" border-style: solid;
+              border-color: rgb(39, 67, 151);
+              border-width: 0px; color: rgb(39, 67, 151);
+              margin-left: 0px;margin-right: 0px;" (click)="formulaire(4)" outline>ملاحظات</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="index==1">
+
+    <ion-item>
+
+      <ion-input placeholder="إسم الزوج" name="husbandname" type="text" [(ngModel)]="familydata.husbandname">
+      </ion-input>
+      <ion-input placeholder="الهاتف" name="phonehusband" type="text" [(ngModel)]="familydata.phonehusband"></ion-input>
+    </ion-item>
+    <ion-item>
+
+      <ion-input placeholder="إسم الزوجه" name="wifename" type="text" [(ngModel)]="familydata.wifename"></ion-input>
+      <ion-input placeholder="الهاتف" name="phonewife" type="text" [(ngModel)]="familydata.phonewife"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="العنوان" name="adress" type="text" [(ngModel)]="familydata.adress"></ion-input>
+
+
+    </ion-item>
+    <ion-item>
+
+      <ion-select cancelText="إلغاء" [(ngModel)]="familydata.Governorate" okText="موافق">
+        <ion-option *ngFor="let item7 of gov " (ionSelect)="get_region(item7.id)" value="{{item7.Governorate}}">
+          {{item7.Governorate}}</ion-option>
+
+
+      </ion-select>
+
+      <ion-label>المحافضة</ion-label>
+    </ion-item>
+    <ion-item>
+
+      <ion-select cancelText="إلغاء" [(ngModel)]="familydata.Region" okText="موافق">
+        <ion-option *ngFor="let item8 of reg " value="{{item8.Region}}">{{item8.Region}}</ion-option>
+
+
+      </ion-select>
+
+      <ion-label>المنطقة</ion-label>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-input placeholder="الجنسية" name="Sexuality" type="text" [(ngModel)]="familydata.Sexuality"></ion-input>
+
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familydata.greencard">
+        <ion-option value="نعم">نعم</ion-option>
+        <ion-option value="لا">لا</ion-option>
+
+      </ion-select>
+
+      <ion-label>البطاقة الخضراء</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="رقم بطاقة الزوج" name="cinwife" [(ngModel)]="familydata.cinwife" type="text"></ion-input>
+
+
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="رقم بطاقة الزوجه" name="cinhusband" [(ngModel)]="familydata.cinhusband" type="text">
+      </ion-input>
+
+
+    </ion-item>
+    <ion-item>
+      <ion-label>ملكية المنزل</ion-label>
+      <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familydata.HomeOwnership">
+        <ion-option value="ملك">ملك</ion-option>
+        <ion-option value="اجار">اجار</ion-option>
+
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="familydata?.HomeOwnership=='اجار'">
+      <ion-input placeholder="المبلغ" name="amountlease" [(ngModel)]="familydata.amountlease" type="text"></ion-input>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label>نوع المساعدات</ion-label>
+      <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familydata.Typeofaid">
+        <ion-option value="شهرية">شهرية</ion-option>
+        <ion-option value="مقطوعة">مقطوعة</ion-option>
+        <ion-option value="لا">لا</ion-option>
+      </ion-select>
+
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-input placeholder="المبلغ من المساعدات" name="Amountaid" [(ngModel)]="familydata.Amountaid" type="text">
+      </ion-input>
+      <ion-input placeholder="رقم الملف في بيت الزكاة" name="FileNo" [(ngModel)]="familydata.FileNo" type="text">
+      </ion-input>
+
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>الاب</ion-label>
+      <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familydata.fatherwork">
+        <ion-option value="يعمل">يعمل</ion-option>
+        <ion-option value="لا">لا</ion-option>
+
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input *ngIf="familydata.fatherwork=='يعمل'" placeholder="الدخل الشهري" name="Monthlyincomefather"
+        [(ngModel)]="familydata.Monthlyincomefather" type="text"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>الام</ion-label>
+      <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familydata.motherwork">
+        <ion-option value="تعمل">تعمل</ion-option>
+        <ion-option value="لا">لا</ion-option>
+
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input *ngIf="familydata.motherwork=='تعمل'" placeholder="الدخل الشهري" name="Monthlyincomemother"
+        [(ngModel)]="familydata.Monthlyincomemother" type="text"></ion-input>
+
+    </ion-item>
+    <ion-item>
+      <ion-label>المذهب الديني</ion-label>
+      <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familydata.Religiousdoctrine">
+        <ion-option value="سنة">سنة</ion-option>
+        <ion-option value="شيعة"> شيعة</ion-option>
+
+      </ion-select>
+
+
+    </ion-item>
+
+    <ion-item>
+
+      <ion-input placeholder="عدد أفراد الاسره" name="namehasben" [(ngModel)]="familydata.familymembers" type="text">
+      </ion-input>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label> إضافة الابناء</ion-label>
+
+    </ion-item>
+    <div *ngFor="let item of all_Sons">
+      <ion-item>
+        <ion-input placeholder="الاسم" name="namehasben" [(ngModel)]="familychildren[item].name" type="text">
+        </ion-input>
+        <ion-input placeholder="العمر" name="phonenumber" [(ngModel)]="familychildren[item].Age" type="text">
+        </ion-input>
+        <ion-input placeholder="الوضيفة" name="phonenumber" [(ngModel)]="familychildren[item].job" type="text">
+        </ion-input>
+        <ion-input placeholder="الدخل الشهري" name="phonenumber" [(ngModel)]="familychildren[item].amountmounth"
+          type="text"></ion-input>
+
+
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="رقم بطاقة الابناء" name="phonenumber" [(ngModel)]="familychildren[item].cinchildren"
+          type="text"></ion-input>
+
+
+      </ion-item>
+    </div>
+    <ion-item>
+      <button ion-button
+        style="  border-style: solid;
+                                                   
+                                                    border-color: rgb(244, 145, 170);
+                                                    border-width: 1px; color: rgb(244, 145, 170);
+                                                    border-radius: 5%;background-color: #fff;color:rgb(131, 208, 226); "
+        (click)="nbSons()" outline>
+        <ion-icon style="font-size: 1.2em" name="ios-add-circle-outline"></ion-icon> إضافة إبن
+      </button>
+    </ion-item>
+
+
+
+  </div>
+
+  <ion-list *ngIf="index==2" inset>
+
+    <div *ngFor="let item1 of all_Object">
+      <ion-row style="border: 0px;">
+
+        <ion-col style="border: 0px;">
+
+          <ion-col style="border: 0px;">
+            <ion-input placeholder="رقم الحاجة" name="Neednumber" [(ngModel)]="familyneeds[item1].Neednumber"
+              type="text"></ion-input>
+            <ion-input placeholder="إسم الحاجة" name="Needname" [(ngModel)]="familyneeds[item1].Needname" type="text">
+            </ion-input>
+          </ion-col>
+
+        </ion-col>
+      </ion-row>
+      <ion-row style="border: 0px;">
+
+        <ion-col style="border: 0px;">
+          <ion-item>
+
+            <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familyneeds[item1].Urgent">
+              <ion-option value="عاجل">عاجل</ion-option>
+              <ion-option value="غير عاجل">غير عاجل</ion-option>
+
+            </ion-select>
+
+            <ion-label>الحالة</ion-label>
+          </ion-item>
+
+
+        </ion-col>
+      </ion-row>
+      <ion-row style="border: 0px;">
+        <ion-col style="border: 0px;" *ngIf="familyneeds[item1].needsgift=='نعم'">
+          <ion-item>
+
+            <ion-label> تاريخ التوفير </ion-label>
+            <ion-datetime value="2019-09-17" min="1990-02" max="2100" [dayShortNames]="familyneeds[item1].needdate"
+              [(ngModel)]="familyneeds[item1].needdate" displayFormat="MMM DD, YY"
+              monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row style="border: 0px;">
+
+        <ion-col style="border: 0px;">
+
+          <ion-item>
+
+            <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familyneeds[item1].needsgift">
+              <ion-option value="نعم">نعم</ion-option>
+              <ion-option value="لا">لا</ion-option>
+
+            </ion-select>
+
+            <ion-label>تم توفيره</ion-label>
+          </ion-item>
+
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row style="border: 0px;">
+      <ion-col style="border: 0px;">
+        <button ion-button style="  border-style: solid;
+                                     
+                                      border-color: rgb(244, 145, 170);
+                                      border-width: 1px; color: rgb(244, 145, 170);
+                                      border-radius: 5%;background-color: #fff;color:rgb(131, 208, 226); "
+          (click)="nbobject()" outline>
+          <ion-icon style="font-size: 1.2em" name="ios-add-circle-outline"></ion-icon> إضافة الحاجة
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+  <ion-list *ngIf="index==3" inset>
+
+    <ion-row style="border: 0px;">
+      <ion-col style="border: 0px;">
+        <ion-input placeholder="إسم الزاير" name="name_visiter" [(ngModel)]="familyvisite.name_visiter" type="text">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border: 0px;">
+
+      <ion-col style="border: 0px;">
+
+        <ion-item>
+          <ion-label> تاريخ الزيارة </ion-label>
+          <ion-datetime value="2019-09-17" min="1990-02" max="2100" [dayShortNames]="familyvisite.date_visite"
+            [(ngModel)]="familyvisite.date_visite" displayFormat="MMM DD, YY"
+            monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row style="border: 0px;">
+
+      <ion-col style="border: 0px;">
+        <ion-input placeholder="رقم الحاجة" name="objectnumber" [(ngModel)]="familyvisite.objectnumber" type="text">
+        </ion-input>
+
+      </ion-col>
+      <ion-col style="border: 0px;">
+        <ion-input placeholder="إسم الحاجة" name="objectname" [(ngModel)]="familyvisite.objectname" type="text">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border: 0px;">
+
+      <ion-col style="border: 0px;">
+        <ion-item>
+
+          <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familyvisite.Urgent">
+            <ion-option value="عاجل">عاجل</ion-option>
+            <ion-option value="غير عاجل">غير عاجل</ion-option>
+
+          </ion-select>
+
+          <ion-label>الحالة</ion-label>
+        </ion-item>
+
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="border: 0px;">
+
+      <ion-col style="border: 0px;">
+
+<ion-item>
+
+        <ion-select cancelText="إلغاء" okText="موافق" [(ngModel)]="familyvisite.objectgift">
+          <ion-option value="نعم">نعم</ion-option>
+          <ion-option value="لا">لا</ion-option>
+
+        </ion-select>
+
+        <ion-label>تم توفيره</ion-label>
+
+      </ion-item>
+
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="familyvisite.objectgift=='نعم'" style="border: 0px;">
+
+      <ion-col style="border: 0px;">
+
+        <ion-item>
+          <ion-label> تاريخ التوفير </ion-label>
+          <ion-datetime value="2019-09-17" min="1990-02" max="2100" [dayShortNames]="familyvisite.objectgiftdate"
+            [(ngModel)]="familyvisite.objectgiftdate" displayFormat="MMM DD, YY"
+            monthShortNames="jan, feb, mar, apr, mai, jun, jul, aug, sep, okt, nov, des"></ion-datetime>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+  <ion-list *ngIf="index==4" inset>
+
+
+    <ion-item *ngFor="let item2 of all_Nots">
+      <ion-input placeholder="الملاحظات" name="notes" type="text" [(ngModel)]="familynotes[item2].notes"></ion-input>
+
+
+    </ion-item>
+    <ion-item>
+      <button ion-button style="  border-style: solid;
+                                   
+                                    border-color: rgb(244, 145, 170);
+                                    border-width: 1px; color: rgb(244, 145, 170);
+                                    border-radius: 5%;background-color: #fff;color:rgb(131, 208, 226); "
+        (click)="nbNotes()" outline>
+        <ion-icon style="font-size: 1.2em" name="ios-add-circle-outline"></ion-icon> إضافة ملاحظات
+      </button>
+    </ion-item>
+
+    <button ion-button style="background-color: rgb(39, 67, 151);" (click)="SendInformationFamly()"> إرسال المعلومات
+    </button>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <button (click)="pushpages(4);" style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="more" style="height: 100%;width: 100%"></ion-icon>المزيد
+  </button>
+  <button (click)="pushpages(3);" style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="person" style="height: 100%;width: 100%"></ion-icon>حسابي
+  </button>
+  <button (click)="pushpages(2);" style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="add-circle" style="height: 100%;width: 100%"></ion-icon>إضافه
+  </button>
+  <button (click)="pushpages(1);" style="background-color: rgb(39, 67, 151); color:#fff;height: 10%;width: 24%">
+    <ion-icon name="bookmarks" style="height: 100%;width: 100%"></ion-icon>مكتبة
+  </button>
+
+
+
+</ion-footer>

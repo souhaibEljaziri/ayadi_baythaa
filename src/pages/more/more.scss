@@ -1,0 +1,23 @@
+page-more {
+  ion-footer {
+    box-shadow: 0 0 4px #fff;
+
+    background-color: rgb(39, 67, 151);
+    border: none;
+  }
+  .toolbar-background {
+    background-color: rgb(39, 67, 151);
+    color: #fff;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border: none;
+  }
+  ion-icon {
+    display: inline-block;
+    font-size: 250%;
+  }
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+}

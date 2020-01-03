@@ -1,4 +1,23 @@
-page-home {
+page-firstpage {
+  .header .col {
+    background-color: #fff;
+  }
+
+  .col {
+    border: solid 1px rgb(39, 67, 151);
+
+    border-right-style: none;
+  }
+
+  .padding-LR {
+    margin-left: 4px;
+    margin-right: 34px;
+  }
+
+  ion-icon {
+    display: inline-block;
+    font-size: 250%;
+  }
   .text-input::-moz-placeholder {
     color: white;
   }
@@ -26,10 +45,11 @@ page-home {
   ion-input {
     display: block;
     border-style: solid;
-    border-color: rgb(252, 176, 64);
+    border-color: rgb(244, 145, 170);
     border-width: 1px;
     background-color: rgb(131, 208, 226);
     margin-bottom: 18px;
+    margin-left: 6px;
     border-radius: 6%;
     input {
       color: #fff;
@@ -50,36 +70,13 @@ page-home {
     border-bottom-left-radius: 50%;
     border: none;
   }
-  #rounded {
-    width: 100%;
-    height: 100px;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-
-  #container {
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  ion-icon {
-    display: inline-block;
-    font-size: 250%;
-  }
   ion-footer {
     box-shadow: 0 0 4px #fff;
 
     background-color: rgb(39, 67, 151);
     border: none;
   }
-  .toolbar-background {
-    background-color: rgb(39, 67, 151);
-    color: #fff;
-    border-bottom-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border: none;
-  }
+  .action-sheet-group {
+    overflow: auto !important;
+}
 }
